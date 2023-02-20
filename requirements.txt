@@ -1,0 +1,4 @@
+autopep8==2.0.1
+pycodestyle==2.10.0
+pycryptodome==3.17
+tomli==2.0.1

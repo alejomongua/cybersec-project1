@@ -81,8 +81,8 @@ def verify_signature_file(filename, signature, pub_key):
 if __name__ == '__main__':
     # Generate keypair
     pub_key, priv_key = generate_keypair()
-    # print(pub_key.decode())
-    # print(priv_key.decode())
+    print(pub_key.decode())
+    print(priv_key.decode())
 
     # Sign message
     message = 'The quick brown fox jumps over the lazy dog'
@@ -96,6 +96,10 @@ if __name__ == '__main__':
 
     print('Signature is valid, it is Ok')
 
+    # Sign file
+    signature = sign_file('README.md', priv_key)
+    print(signature)
+
     # Generate keypair with passphrase
     pub_key1, priv_key1 = generate_keypair(passphrase='secret')
     # print(pub_key1.decode())
@@ -103,7 +107,7 @@ if __name__ == '__main__':
 
     # Sign file
     signature = sign_file('README.md', priv_key1, passphrase='secret')
-    print(signature)
+    # print(signature)
 
     # Verify signature of file
     sign_ok = verify_signature_file('README.md', signature, pub_key1)
